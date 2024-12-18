@@ -192,7 +192,10 @@ $("#root").on("click", "#BtnContainer>div:first-of-type", function(e){
 
 function increamentDay(){
     states.usersList[states.active].day++;
-    update();
+    let dateArr = market[states.usersList[states.active].day - 1].date.split("-");
+    $("#dayP").text("Day " + states.usersList[states.active].day);
+    $("#dateP").text(`${dateArr[0]} ${months[parseInt(dateArr[1]) - 1]} ${dateArr[2]}`)
+    localStorage.setItem("states", JSON.stringify(states))
 }
 
 $("#root").on("click", "#BtnContainer>div:nth-of-type(2)", function(e){
